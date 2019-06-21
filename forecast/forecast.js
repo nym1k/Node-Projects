@@ -33,9 +33,10 @@ function getForecast(lat, lng, location) {
     res.on('end', () => {
       const forecastData = JSON.parse(body)
       const summary = forecastData.currently.summary
+      const temp = forecastData.currently.temperature
       const daily = forecastData.daily.summary
       // console.log(forecastData);
-      const forecastMessage = `The weather forcast for ${location} today is: ${summary}. The forecast for later in the week is: ${daily}`
+      const forecastMessage = `The weather forcast for ${location} today is: ${summary} with a temperature of ${temp}°c. The forecast for later in the week is: ${daily}`
       console.log(forecastMessage);
     })
   })
